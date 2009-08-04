@@ -1,0 +1,28 @@
+<h1>Editing question</h1>
+
+<% form_for(@question) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_area :question %>
+  </p>
+  
+  <% f.fields_for :choices do |choice| %>
+    <p>
+      <%= choice.label :letter %><br />
+      <%= choice.text_field :letter %>
+    </p>
+    <p>
+      <%= choice.label :choice %><br />
+      <%= choice.text_field :choice %>
+    </p>    
+  <% end %>
+  
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @question %> |
+<%= link_to 'Back', questions_path %>

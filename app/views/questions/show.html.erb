@@ -1,0 +1,19 @@
+<p>
+  <b>Question:</b>
+  <%=h @question.question %>
+</p>
+
+<table>
+<% @question.choices.each do |choice| %>
+  <tr>
+    <td><%=h choice.letter %>.</td>
+    <td><%=h choice.choice %></td>
+    <td><%= link_to 'Show', choice %></td>
+    <td><%= link_to 'Edit', edit_choice_path(choice) %></td>
+    <td><%= link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

@@ -1,0 +1,19 @@
+<%= flash[:notice] %>
+<p>
+  <%=h @user.id %>:
+  <%=h @user.email %>
+  <br />
+  <%=h @user.dna %>
+</p>
+
+<h2>Matches</h2>
+<p>
+  <% @user.matches.each do |key, value| %>
+    id: <%= key %>, match: <%= value %>%
+  <% end %>
+</p>
+
+<%= link_to 'Questions', questions_path %>
+<%= link_to 'Answers', answers_path %>
+<%= link_to 'Edit', edit_account_path %>
+<%= link_to 'Logout', logout_path %>

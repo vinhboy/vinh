@@ -1,0 +1,18 @@
+<p>
+  <b>User:</b>
+  <%=h @choice.user %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%=h @choice.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%=h @choice.answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_choice_path(@choice) %> |
+<%= link_to 'Back', choices_path %>

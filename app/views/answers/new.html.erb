@@ -1,0 +1,30 @@
+<h1>New answer</h1>
+
+<% form_for(@answer) do |f| %>
+  <%= f.error_messages %>
+  <% @questions.each do |question| %>
+  <%
+      index = "new_" + question.id.to_s
+      answer = question.answer(current_user)
+  %>
+    <p>
+      <%= f.hidden_field :id, :value => (answer.id if answer), :index => index %>
+      <%= f.hidden_field :question_id, :value => question.id, :index => index %>
+      <% question.choices.each do |choice| %>
+        <p>
+          <% html_id = "choice_"+choice.id.to_s%>
+          <%= f.radio_button :answer, choice.letter, :id => html_id, :index => index, :checked => (answer.answer == choice.letter if answer) %> 
+          <%= label_tag html_id, choice.letter+" "+choice.choice %>
+        <p>
+      <% end %>
+    </p>
+    <hr />
+  <% end %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= will_paginate @questions %>
+
+<%= link_to 'Back', answers_path %>
