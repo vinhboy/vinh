@@ -23097,3 +23097,1758 @@ Processing UsersController#show (for 127.0.0.1 at 2009-08-03 09:36:17) [GET]
 Rendering users/show
   [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
 Completed in 28ms (View: 2, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-08-07 08:55:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (4.2ms)
+Completed in 65ms (View: 25, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 08:55:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/answers]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-07 08:55:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering user_sessions/new
+Completed in 26ms (View: 11, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-08-07 08:57:23) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "remember_me"=>"0", "email"=>"vinhboy@gmail.com"}, "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".email) = 'vinhboy@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "login_count" = 3, "perishable_token" = 'Hqc5QltkoCNJJYvw3QAE', "last_request_at" = '2009-08-07 15:57:24', "last_login_at" = '2009-08-03 16:25:25', "updated_at" = '2009-08-07 15:57:24', "current_login_at" = '2009-08-07 15:57:24' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 465ms (DB: 1) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-07 08:57:24) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'EwZItnlfPApd0iJ2F-_5', "last_request_at" = '2009-08-07 15:57:24', "updated_at" = '2009-08-07 15:57:24' WHERE "id" = 1[0m
+Rendering users/show
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 96ms (View: 20, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 08:57:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '54uCBukDwum8u0ZDmbLd', "last_request_at" = '2009-08-07 15:57:40', "updated_at" = '2009-08-07 15:57:40' WHERE "id" = 1[0m
+  [4;35;1mAnswer Load (0.9ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".user_id = 1) [0m
+Rendering template within layouts/answers
+Rendering answers/index
+Completed in 104ms (View: 39, DB: 2) | 200 OK [http://localhost/answers]
+
+
+Processing AnswersController#new (for 127.0.0.1 at 2009-08-07 08:57:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"answers"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'TDE339GNVt864JMzXWyO', "last_request_at" = '2009-08-07 15:57:49', "updated_at" = '2009-08-07 15:57:49' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.7ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 5 OFFSET 0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/answers
+Rendering answers/new
+  [4;36;1mAnswer Load (0.4ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+  [4;36;1mAnswer Load (0.3ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 2) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 3) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 4) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 5) [0m
+Completed in 117ms (View: 50, DB: 6) | 200 OK [http://localhost/answers/new]
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 08:57:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'xTH_6V1P0oVHyIfGeJhu', "last_request_at" = '2009-08-07 15:57:57', "updated_at" = '2009-08-07 15:57:57' WHERE "id" = 1[0m
+  [4;36;1mAnswer Load (0.8ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".user_id = 1) [0m
+Rendering template within layouts/answers
+Rendering answers/index
+Completed in 32ms (View: 4, DB: 2) | 200 OK [http://localhost/answers]
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 08:59:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'Dlzfhkq3gzAb9x0GxirA', "last_request_at" = '2009-08-07 15:59:24', "updated_at" = '2009-08-07 15:59:24' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.6ms)[0m   [0mSELECT * FROM "questions" LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/answers
+Rendering answers/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #4 of app/views/answers/index.html.erb:
+1: <h2>Listing answers</h2>
+2: 
+3: <table>
+4:   <% @answers.each do |answer| %>
+5:       <tr>
+6:         <td><%=h answer.id %></td>
+7:         <td><%=h answer.user_id %></td>
+
+    app/views/answers/index.html.erb:4
+    app/controllers/answers_controller.rb:10:in `index'
+
+Rendered rescues/_trace (42.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 08:59:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '8dB7CISCdGeYRNFu0unu', "last_request_at" = '2009-08-07 15:59:51', "updated_at" = '2009-08-07 15:59:51' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.6ms)[0m   [0mSELECT * FROM "questions" LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/answers
+Rendering answers/index
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mChoice Load (0.5ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mChoice Load (0.5ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 2) [0m
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mChoice Load (0.5ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 3) [0m
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mChoice Load (0.5ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 4) [0m
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mChoice Load (0.5ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 5) [0m
+Completed in 125ms (View: 89, DB: 5) | 200 OK [http://localhost/answers]
+
+
+Processing AnswersController#create (for 127.0.0.1 at 2009-08-07 09:00:07) [POST]
+  Parameters: {"answer"=>{"new_1"=>{"answer"=>"A", "question_id"=>"1", "id"=>"1"}, "new_2"=>{"answer"=>"A", "question_id"=>"2", "id"=>"2"}, "new_3"=>{"answer"=>"A", "question_id"=>"3", "id"=>"3"}, "new_4"=>{"question_id"=>"4", "id"=>"4"}, "new_5"=>{"question_id"=>"5", "id"=>"5"}}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"answers"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'exreC35aCR7TTIzaPPmo', "last_request_at" = '2009-08-07 16:00:07', "updated_at" = '2009-08-07 16:00:07' WHERE "id" = 1[0m
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."id" = '1') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAnswer Load (0.3ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = '2') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."id" = '3') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = '4') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."id" = '5') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAnswer Exists (0.1ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 1 AND "answers".user_id = 1 AND "answers".id <> 1) LIMIT 1[0m
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 2 AND "answers".user_id = 1 AND "answers".id <> 2) LIMIT 1[0m
+  [4;36;1mAnswer Exists (0.1ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 3 AND "answers".user_id = 1 AND "answers".id <> 3) LIMIT 1[0m
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 4 AND "answers".user_id = 1 AND "answers".id <> 4) LIMIT 1[0m
+  [4;36;1mAnswer Exists (0.1ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 5 AND "answers".user_id = 1 AND "answers".id <> 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 1 AND "answers".user_id = 1 AND "answers".id <> 1) LIMIT 1[0m
+  [4;36;1mAnswer Update (0.3ms)[0m   [0;1mUPDATE "answers" SET "answer" = 'A', "updated_at" = '2009-08-07 16:00:07' WHERE "id" = 1[0m
+  [4;35;1mAnswer Exists (0.3ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 2 AND "answers".user_id = 1 AND "answers".id <> 2) LIMIT 1[0m
+  [4;36;1mAnswer Exists (0.2ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 3 AND "answers".user_id = 1 AND "answers".id <> 3) LIMIT 1[0m
+  [4;35;1mAnswer Update (0.3ms)[0m   [0mUPDATE "answers" SET "answer" = 'A', "updated_at" = '2009-08-07 16:00:07' WHERE "id" = 3[0m
+  [4;36;1mAnswer Exists (0.3ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 4 AND "answers".user_id = 1 AND "answers".id <> 4) LIMIT 1[0m
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 5 AND "answers".user_id = 1 AND "answers".id <> 5) LIMIT 1[0m
+  [4;36;1mQuestion Load (0.6ms)[0m   [0;1mSELECT * FROM "questions" [0m
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "dna" = 'AAA00C', "perishable_token" = '4MpHRiRQHkUSg5SLii87', "updated_at" = '2009-08-07 16:00:07' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/answers
+Completed in 70ms (DB: 7) | 302 Found [http://localhost/answers]
+
+
+Processing AnswersController#index (for 127.0.0.1 at 2009-08-07 09:00:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"answers"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'XWsr3B19GEhskr_fBNem', "last_request_at" = '2009-08-07 16:00:07', "updated_at" = '2009-08-07 16:00:07' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.6ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 5 OFFSET 0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/answers
+Rendering answers/index
+  [4;36;1mAnswer Load (0.3ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.4ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 2) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.5ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 3) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.4ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 4) [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mChoice Load (0.4ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 5) [0m
+Completed in 48ms (View: 14, DB: 5) | 200 OK [http://localhost/answers]
+
+
+Processing AnswersController#create (for 127.0.0.1 at 2009-08-07 09:01:14) [POST]
+  Parameters: {"answer"=>{"new_1"=>{"answer"=>"A", "question_id"=>"1", "id"=>"1"}, "new_2"=>{"answer"=>"A", "question_id"=>"2", "id"=>"2"}, "new_3"=>{"answer"=>"A", "question_id"=>"3", "id"=>"3"}, "new_4"=>{"question_id"=>"4", "id"=>"4"}, "new_5"=>{"question_id"=>"5", "id"=>"5"}}, "commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"answers"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = '4AhvqBRz-jNksLJNHOlJ', "last_request_at" = '2009-08-07 16:01:14', "updated_at" = '2009-08-07 16:01:14' WHERE "id" = 1[0m
+  [4;36;1mAnswer Load (0.4ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = '1') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."id" = '2') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = '3') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."id" = '4') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = '5') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 1 AND "answers".user_id = 1 AND "answers".id <> 1) LIMIT 1[0m
+  [4;36;1mAnswer Exists (0.1ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 2 AND "answers".user_id = 1 AND "answers".id <> 2) LIMIT 1[0m
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 3 AND "answers".user_id = 1 AND "answers".id <> 3) LIMIT 1[0m
+  [4;36;1mAnswer Exists (0.1ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 4 AND "answers".user_id = 1 AND "answers".id <> 4) LIMIT 1[0m
+  [4;35;1mAnswer Exists (0.1ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 5 AND "answers".user_id = 1 AND "answers".id <> 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 1 AND "answers".user_id = 1 AND "answers".id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 2 AND "answers".user_id = 1 AND "answers".id <> 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 3 AND "answers".user_id = 1 AND "answers".id <> 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 4 AND "answers".user_id = 1 AND "answers".id <> 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "answers".id FROM "answers" WHERE ("answers"."question_id" = 5 AND "answers".user_id = 1 AND "answers".id <> 5) LIMIT 1[0m
+  [4;35;1mQuestion Load (0.6ms)[0m   [0mSELECT * FROM "questions" [0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 1) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mAnswer Load (0.2ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 2) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mAnswer Load (0.2ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 3) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mAnswer Load (0.4ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 4) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 5) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mAnswer Load (0.3ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers"."question_id" = 6) AND ("answers".user_id = 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'Bb9BOLULTVzSUAabOEHL', "updated_at" = '2009-08-07 16:01:14' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Completed in 102ms (DB: 6) | 302 Found [http://localhost/answers]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-07 09:01:14) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'CQwgDbfPk0YHh2ZHw32z', "last_request_at" = '2009-08-07 16:01:15', "updated_at" = '2009-08-07 16:01:15' WHERE "id" = 1[0m
+Rendering users/show
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 100ms (View: 2, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-08-07 09:02:52) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'lLpVLXWIeRQdgz1esyRT', "last_request_at" = '2009-08-07 16:02:52', "updated_at" = '2009-08-07 16:02:52' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 31ms (View: 8, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:03:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'VlIEGfGtxeMDD3KBo0-L', "last_request_at" = '2009-08-07 16:03:30', "updated_at" = '2009-08-07 16:03:30' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.7ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 53ms (View: 27, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:03:45) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'dF8QjfJcVpUh5mHVF9EA', "last_request_at" = '2009-08-07 16:03:45', "updated_at" = '2009-08-07 16:03:45' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.3ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.6ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 386ms (View: 362, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:04:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'DXDjGAbJYLzMWgADxqJZ', "last_request_at" = '2009-08-07 16:04:38', "updated_at" = '2009-08-07 16:04:38' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.6ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering questions/index
+Completed in 30ms (View: 7, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:04:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'gJbFHMWmN_O6xudRuYFq', "last_request_at" = '2009-08-07 16:04:39', "updated_at" = '2009-08-07 16:04:39' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.7ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering questions/index
+Completed in 33ms (View: 6, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:05:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = '9cd7-iStw4zo3ew7XFG5', "last_request_at" = '2009-08-07 16:05:02', "updated_at" = '2009-08-07 16:05:02' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.7ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering questions/index
+Completed in 41ms (View: 6, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:07:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = '0YDm4_L6p9rIGTiTBzPe', "last_request_at" = '2009-08-07 16:07:18', "updated_at" = '2009-08-07 16:07:18' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.6ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 164ms (View: 13, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:07:37) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'qQX3KkaFxpxGNKXxNJtB', "last_request_at" = '2009-08-07 16:07:37', "updated_at" = '2009-08-07 16:07:37' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 39ms (View: 14, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:09:51) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '6GoFNxbLBj03aTG5S4lx', "last_request_at" = '2009-08-07 16:09:51', "updated_at" = '2009-08-07 16:09:51' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+
+ActionView::TemplateError (You don't need to use "- end" in Haml. Use indentation instead:
+- if foo?
+  %strong Foo!
+- else
+  Not foo.) on line #13 of app/views/questions/edit.html.haml:
+10: %p
+11:   = choice.letter + "."
+12:   = choice.text_field :choice
+13: - end
+14: %p
+15:   = f.submit 'Update'
+16: - end
+
+    app/views/questions/edit.html.haml:13
+    haml (2.2.0) lib/haml/precompiler.rb:219:in `process_line'
+    haml (2.2.0) lib/haml/precompiler.rb:168:in `precompile'
+    haml (2.2.0) lib/haml/engine.rb:112:in `initialize'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `new'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `compile'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (43.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:10:08) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'wqfOh1XN6vuu4UbVvyum', "last_request_at" = '2009-08-07 16:10:08', "updated_at" = '2009-08-07 16:10:08' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.3ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+
+ActionView::TemplateError (You don't need to use "- end" in Haml. Use indentation instead:
+- if foo?
+  %strong Foo!
+- else
+  Not foo.) on line #13 of app/views/questions/edit.html.haml:
+10: %p
+11:   = choice.letter
+12:   = choice.text_field :choice
+13: - end
+14: %p
+15:   = f.submit 'Update'
+16: - end
+
+    app/views/questions/edit.html.haml:13
+    haml (2.2.0) lib/haml/precompiler.rb:219:in `process_line'
+    haml (2.2.0) lib/haml/precompiler.rb:168:in `precompile'
+    haml (2.2.0) lib/haml/engine.rb:112:in `initialize'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `new'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `compile'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:10:09) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'MN-UmKTWJa9ZAugyhY92', "last_request_at" = '2009-08-07 16:10:09', "updated_at" = '2009-08-07 16:10:09' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+
+ActionView::TemplateError (You don't need to use "- end" in Haml. Use indentation instead:
+- if foo?
+  %strong Foo!
+- else
+  Not foo.) on line #13 of app/views/questions/edit.html.haml:
+10: %p
+11:   = choice.letter
+12:   = choice.text_field :choice
+13: - end
+14: %p
+15:   = f.submit 'Update'
+16: - end
+
+    app/views/questions/edit.html.haml:13
+    haml (2.2.0) lib/haml/precompiler.rb:219:in `process_line'
+    haml (2.2.0) lib/haml/precompiler.rb:168:in `precompile'
+    haml (2.2.0) lib/haml/engine.rb:112:in `initialize'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `new'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `compile'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:10:40) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'rK8I0_KrL1D905CLocsR', "last_request_at" = '2009-08-07 16:10:40', "updated_at" = '2009-08-07 16:10:40' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.3ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.6ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+
+ActionView::TemplateError (undefined method `letter' for #<ActionView::Helpers::FormBuilder:0x2267080>) on line #12 of app/views/questions/edit.html.haml:
+9:   - f.fields_for :choices do |choice|
+10:     %p
+11:       = choice.letter
+12:       = choice.text_field :choice
+13:     %p
+14:       = f.submit 'Update'
+15: = link_to 'Show', @question
+
+    app/views/questions/edit.html.haml:12:in `_run_haml_app47views47questions47edit46html46haml'
+    app/views/questions/edit.html.haml:9:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `call'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `form_for'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `call'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `haml_bind_proc'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/questions/edit.html.haml:3:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (50.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:13:02) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'uY8jfc7LNZFI8v8YZk9Y', "last_request_at" = '2009-08-07 16:13:02', "updated_at" = '2009-08-07 16:13:02' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.3ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.6ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 38ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:13:19) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'XgjGUkEve0uYwOpv8eGS', "last_request_at" = '2009-08-07 16:13:19', "updated_at" = '2009-08-07 16:13:19' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.3ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.6ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 107ms (View: 15, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:13:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'aU9On2UAJ365cAqMjDwp', "last_request_at" = '2009-08-07 16:13:34', "updated_at" = '2009-08-07 16:13:34' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.7ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 33ms (View: 7, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:13:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'R-qlItf0GgfTdsGfUzLP', "last_request_at" = '2009-08-07 16:13:35', "updated_at" = '2009-08-07 16:13:35' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 65ms (View: 37, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:13:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'M3Lw0gLPM2MosxsDTAow', "last_request_at" = '2009-08-07 16:13:40', "updated_at" = '2009-08-07 16:13:40' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 57ms (View: 31, DB: 2) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:14:49) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '50x-eQiRZNSMRPjIKPKO', "last_request_at" = '2009-08-07 16:14:49', "updated_at" = '2009-08-07 16:14:49' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 97ms (View: 10, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:16:57) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'C6KEzWXgnvI8ua_SE40x', "last_request_at" = '2009-08-07 16:16:57', "updated_at" = '2009-08-07 16:16:57' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 41ms (View: 14, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:17:08) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '6WadzHaF4VWzxMJPIe88', "last_request_at" = '2009-08-07 16:17:08', "updated_at" = '2009-08-07 16:17:08' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 39ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:17:29) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'ih11Eq-ugjMLd7tDlaxt', "last_request_at" = '2009-08-07 16:17:29', "updated_at" = '2009-08-07 16:17:29' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+
+ActionView::TemplateError (undefined method `letter' for #<ActionView::Helpers::FormBuilder:0x22c65d0>) on line #11 of app/views/questions/edit.html.haml:
+8:     = f.text_area :question
+9:   - f.fields_for :choices do |choice|
+10:     %p
+11:       = choice.label :choice, choice.letter
+12:       = choice.text_field :choice
+13:   %p
+14:     = f.submit 'Update'
+
+    app/views/questions/edit.html.haml:11:in `_run_haml_app47views47questions47edit46html46haml'
+    app/views/questions/edit.html.haml:9:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `call'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `form_for'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `call'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `haml_bind_proc'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/questions/edit.html.haml:3:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (50.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:17:38) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'Oy89oAaFiGQuYl9IX2DW', "last_request_at" = '2009-08-07 16:17:38', "updated_at" = '2009-08-07 16:17:38' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+
+ActionView::TemplateError (undefined method `letter' for #<ActionView::Helpers::FormBuilder:0x2356b80>) on line #11 of app/views/questions/edit.html.haml:
+8:     = f.text_area :question
+9:   - f.fields_for :choices do |choice|
+10:     %p
+11:       = choice.label choice.letter
+12:       = choice.text_field :choice
+13:   %p
+14:     = f.submit 'Update'
+
+    app/views/questions/edit.html.haml:11:in `_run_haml_app47views47questions47edit46html46haml'
+    app/views/questions/edit.html.haml:9:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `call'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:161:in `form_for'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `call'
+    haml (2.2.0) lib/haml/helpers.rb:527:in `haml_bind_proc'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/questions/edit.html.haml:3:in `_run_haml_app47views47questions47edit46html46haml'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (115.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:17:46) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'P7aF3O-WPETwhiK_0xrh', "last_request_at" = '2009-08-07 16:17:46', "updated_at" = '2009-08-07 16:17:46' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 39ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:17:49) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'fD3qDsLPX2kzrY568-fp', "last_request_at" = '2009-08-07 16:17:49', "updated_at" = '2009-08-07 16:17:49' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 46ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:18:31) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'sl_C482uXHcAF0t5NwWI', "last_request_at" = '2009-08-07 16:18:31', "updated_at" = '2009-08-07 16:18:31' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 106ms (View: 80, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:18:32) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'NpMoYGCcuIUQAUv-ZwSl', "last_request_at" = '2009-08-07 16:18:32', "updated_at" = '2009-08-07 16:18:32' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 38ms (View: 10, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:18:33) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'REqNz5AE7LADJFjhaeAt', "last_request_at" = '2009-08-07 16:18:33', "updated_at" = '2009-08-07 16:18:33' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 36ms (View: 10, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:19:06) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '4Ov_l77Nu4kLO2E-5cSU', "last_request_at" = '2009-08-07 16:19:06', "updated_at" = '2009-08-07 16:19:06' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 40ms (View: 14, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:19:55) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'lkw6WSWhaDTES4tLLJD9', "last_request_at" = '2009-08-07 16:19:55', "updated_at" = '2009-08-07 16:19:55' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.6ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+
+***** Debugger requested, but was not available: Start server with --debugger to enable *****
+Completed in 106ms (View: 15, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:20:11) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'R10bFrItTrOMgPrWJ-0r', "last_request_at" = '2009-08-07 16:20:11', "updated_at" = '2009-08-07 16:20:11' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.8ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 87876ms (View: 87751, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:05) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = '9xqJl3RhqprBAFWvhRx7', "last_request_at" = '2009-08-07 16:22:05', "updated_at" = '2009-08-07 16:22:05' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.5ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 50ms (View: 17, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:19) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'IwoarYb6DZ9OqGL3AVx8', "last_request_at" = '2009-08-07 16:22:19', "updated_at" = '2009-08-07 16:22:19' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.8ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 52ms (View: 18, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'XJmajKXtaknQZw_xx-Ir', "last_request_at" = '2009-08-07 16:22:20', "updated_at" = '2009-08-07 16:22:20' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.8ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 109ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:26) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'Y27eDh_br6dbSLgJC1r9', "last_request_at" = '2009-08-07 16:22:26', "updated_at" = '2009-08-07 16:22:26' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.5ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 50ms (View: 17, DB: 3) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:34) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'V-WCHUTRq1VxzV2zp3gN', "last_request_at" = '2009-08-07 16:22:34', "updated_at" = '2009-08-07 16:22:34' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 49ms (View: 17, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:22:36) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'nf4HrcIo4_TG24wfP9fi', "last_request_at" = '2009-08-07 16:22:36', "updated_at" = '2009-08-07 16:22:36' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 45ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:23:02) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'SKNlCO_kXc2TBKpmYmuB', "last_request_at" = '2009-08-07 16:23:02', "updated_at" = '2009-08-07 16:23:02' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 52ms (View: 17, DB: 3) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:23:17) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'o-lOQmsmfz-5XiSWBc-W', "last_request_at" = '2009-08-07 16:23:17', "updated_at" = '2009-08-07 16:23:17' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.8ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 49ms (View: 16, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:23:47) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = '0j9NZcDcHDtP2673s6qm', "last_request_at" = '2009-08-07 16:23:47', "updated_at" = '2009-08-07 16:23:47' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.5ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+ERROR: compiling _run_haml_app47views47questions47edit46html46haml RAISED compile error
+/Users/mac/workspace/vinh/app/views/questions/edit.html.haml:11: syntax error, unexpected ','
+..._field :letter, :disabled => , :size => 3
+                              ^
+Function body:           def _run_haml_app47views47questions47edit46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :format=>:xhtml, :ugly=>false, :preserve=>["textarea", "pre"], :encoding=>nil});_erbout = _hamlout.buffer;__in_erb_template = true;;
+
+_hamlout.push_text("<h1>\n  Editing question\n</h1>\n", 0, false); form_for(@question) do |f|;
+
+
+_hamlout.push_text("#{haml_temp =  f.error_messages
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n<p>\n  #{_hamlout.adjust_tabs(1); haml_temp =  f.label :question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  <br />\n  #{haml_temp =  f.text_area :question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n", -1, false); f.fields_for :choices do |choice|;
+
+_hamlout.push_text("<p>\n  #{_hamlout.adjust_tabs(1); haml_temp =  choice.text_field :letter, :disabled => , :size => 3
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  #{haml_temp =  choice.text_field :choice
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n", -1, false);end;
+_hamlout.push_text("<p>\n  #{_hamlout.adjust_tabs(1); haml_temp =  f.submit 'Update'
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n", -1, false);end;
+_hamlout.push_text("#{haml_temp =  link_to 'Show', @question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n|\n#{haml_temp =  link_to 'Back', questions_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/mac/workspace/vinh/app/views/questions/edit.html.haml:21:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/debugger.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/mac/workspace/vinh/app/views/questions/edit.html.haml:11: syntax error, unexpected ','
+..._field :letter, :disabled => , :size => 3
+                              ^) on line #11 of app/views/questions/edit.html.haml:
+8:     = f.text_area :question
+9:   - f.fields_for :choices do |choice|
+10:     %p
+11:       = choice.text_field :letter, :disabled => , :size => 3
+12:       = choice.text_field :choice
+13:   %p
+14:     = f.submit 'Update'
+
+    app/views/questions/edit.html.haml:21:in `compile!'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (122.5ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:23:55) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'NRgRzwy2zmKyrZe8rfzF', "last_request_at" = '2009-08-07 16:23:55', "updated_at" = '2009-08-07 16:23:55' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 50ms (View: 17, DB: 3) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:24:02) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'CcalDpi74EvRsS8wlzqy', "last_request_at" = '2009-08-07 16:24:02', "updated_at" = '2009-08-07 16:24:02' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.7ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 49ms (View: 16, DB: 3) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#update (for 127.0.0.1 at 2009-08-07 09:24:26) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "id"=>"1", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"a11", "id"=>"1"}, "1"=>{"choice"=>"b11", "id"=>"2"}, "2"=>{"choice"=>"c11", "id"=>"3"}, "3"=>{"choice"=>"d11", "id"=>"4"}}, "question"=>"question 1"}}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '5anH1U_XdhaqnbsCw7VS', "last_request_at" = '2009-08-07 16:24:26', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+  [4;35;1mChoice Update (0.4ms)[0m   [0mUPDATE "choices" SET "choice" = 'a11', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 1[0m
+  [4;36;1mChoice Update (0.1ms)[0m   [0;1mUPDATE "choices" SET "choice" = 'b11', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 2[0m
+  [4;35;1mChoice Update (0.1ms)[0m   [0mUPDATE "choices" SET "choice" = 'c11', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 3[0m
+  [4;36;1mChoice Update (0.1ms)[0m   [0;1mUPDATE "choices" SET "choice" = 'd11', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/questions/1
+Completed in 48ms (DB: 3) | 302 Found [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:24:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'xSmFbqxLlLlj9pSHCy48', "last_request_at" = '2009-08-07 16:24:26', "updated_at" = '2009-08-07 16:24:26' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.8ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.8ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 48ms (View: 15, DB: 3) | 200 OK [http://localhost/questions/1]
+
+
+Processing ChoicesController#edit (for 127.0.0.1 at 2009-08-07 09:24:40) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"choices"}
+  [4;35;1mChoice Load (0.3ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering choices/edit
+
+ActionView::TemplateError (undefined method `user' for #<Choice:0x245b080>) on line #8 of app/views/choices/edit.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :user %><br />
+8:     <%= f.text_field :user %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :question %><br />
+
+    app/views/choices/edit.html.erb:8
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/choices/edit.html.erb:3
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (61.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:26:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'aAPzkFZuacPWVkSo_n8-', "last_request_at" = '2009-08-07 16:26:13', "updated_at" = '2009-08-07 16:26:13' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+ERROR: compiling _run_haml_app47views47questions47show46html46haml RAISED compile error
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_haml_app47views47questions47show46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :format=>:xhtml, :ugly=>false, :preserve=>["textarea", "pre"], :encoding=>nil});_erbout = _hamlout.buffer;__in_erb_template = true;;
+
+
+
+_hamlout.push_text("<p>\n  <b>\n    Question:\n  </b>\n  #{_hamlout.adjust_tabs(1); haml_temp =  h @question.question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n<table>\n", 0, false); @question.choices.each do |choice|;
+
+
+
+
+
+
+_hamlout.push_text("  <tr>\n    <td>\n      #{_hamlout.adjust_tabs(2); haml_temp =  h choice.letter
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n      .\n    </td>\n    <td>\n      #{haml_temp =  h choice.choice
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n      = link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete\n    </td>\n  </tr>\n</table>\n#{_hamlout.adjust_tabs(-3); haml_temp =  link_to 'Edit', edit_question_path(@question)
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n|\n#{haml_temp =  link_to 'Back', questions_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/mac/workspace/vinh/app/views/questions/show.html.haml:20:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/mac/workspace/vinh/app/controllers/questions_controller.rb:20:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/debugger.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/questions/show.html.haml:
+15: |
+16: = link_to 'Back', questions_path
+
+    app/views/questions/show.html.haml:20:in `compile!'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/questions_controller.rb:20:in `show'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (57.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:26:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'v8SQLdFi5kJGpE_KxHhH', "last_request_at" = '2009-08-07 16:26:24', "updated_at" = '2009-08-07 16:26:24' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.3ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+
+ActionView::TemplateError (Illegal element: classes and ids must have values.) on line #13 of app/views/questions/show.html.haml:
+10:       \.
+11:     %td
+12:       = h choice.choice
+13:       #= link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete
+14: = link_to 'Edit', edit_question_path(@question)
+15: |
+16: = link_to 'Back', questions_path
+
+    app/views/questions/show.html.haml:13
+    haml (2.2.0) lib/haml/precompiler.rb:638:in `render_tag'
+    haml (2.2.0) lib/haml/precompiler.rb:759:in `render_div'
+    haml (2.2.0) lib/haml/precompiler.rb:203:in `process_line'
+    haml (2.2.0) lib/haml/precompiler.rb:168:in `precompile'
+    haml (2.2.0) lib/haml/engine.rb:112:in `initialize'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `new'
+    haml (2.2.0) rails/./lib/haml/template/plugin.rb:21:in `compile'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/questions_controller.rb:20:in `show'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (135.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:26:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = '7XO5-hfrJyU1sjVqgsnj', "last_request_at" = '2009-08-07 16:26:33', "updated_at" = '2009-08-07 16:26:33' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+ERROR: compiling _run_haml_app47views47questions47show46html46haml RAISED compile error
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_haml_app47views47questions47show46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :format=>:xhtml, :ugly=>false, :preserve=>["textarea", "pre"], :encoding=>nil});_erbout = _hamlout.buffer;__in_erb_template = true;;
+
+
+
+_hamlout.push_text("<p>\n  <b>\n    Question:\n  </b>\n  #{_hamlout.adjust_tabs(1); haml_temp =  h @question.question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n<table>\n", 0, false); @question.choices.each do |choice|;
+
+
+
+
+
+
+_hamlout.push_text("  <tr>\n    <td>\n      #{_hamlout.adjust_tabs(2); haml_temp =  h choice.letter
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n      .\n    </td>\n    <td>\n      #{haml_temp =  h choice.choice
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n      <!-- = link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete -->\n    </td>\n  </tr>\n</table>\n#{_hamlout.adjust_tabs(-3); haml_temp =  link_to 'Edit', edit_question_path(@question)
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n|\n#{haml_temp =  link_to 'Back', questions_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/mac/workspace/vinh/app/views/questions/show.html.haml:20:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/mac/workspace/vinh/app/controllers/questions_controller.rb:20:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/debugger.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/show.html.haml:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/questions/show.html.haml:
+15: |
+16: = link_to 'Back', questions_path
+
+    app/views/questions/show.html.haml:20:in `compile!'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/questions_controller.rb:20:in `show'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (57.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:27:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'CG_lDbaDdV4ThtO8wlR9', "last_request_at" = '2009-08-07 16:27:02', "updated_at" = '2009-08-07 16:27:02' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 116ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:27:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'yoIuPuRsj-fTgc2ZrcF0', "last_request_at" = '2009-08-07 16:27:17', "updated_at" = '2009-08-07 16:27:17' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 46ms (View: 13, DB: 2) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:27:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'G-TpDRivaQ8DgEtDh5Py', "last_request_at" = '2009-08-07 16:27:53', "updated_at" = '2009-08-07 16:27:53' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.6ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 45ms (View: 12, DB: 3) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:27:59) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'MYpYOpwuAb9Z9o4Gi5K3', "last_request_at" = '2009-08-07 16:27:59', "updated_at" = '2009-08-07 16:27:59' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 45ms (View: 12, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:28:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '-I5bXmVYY7_yZ2GMWx8D', "last_request_at" = '2009-08-07 16:28:02', "updated_at" = '2009-08-07 16:28:02' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.9ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 109ms (View: 12, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:28:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'G0jK33_ltf_lKEy_9fLE', "last_request_at" = '2009-08-07 16:28:10', "updated_at" = '2009-08-07 16:28:10' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 41ms (View: 8, DB: 2) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#edit (for 127.0.0.1 at 2009-08-07 09:28:14) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'ZXDjXFsyqiQhN83nRLKe', "last_request_at" = '2009-08-07 16:28:14', "updated_at" = '2009-08-07 16:28:14' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/edit
+  [4;35;1mChoice Load (0.7ms)[0m   [0mSELECT * FROM "choices" WHERE ("choices".question_id = 1) [0m
+Completed in 45ms (View: 12, DB: 2) | 200 OK [http://localhost/questions/1/edit]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:30:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'hBXm5kGEVg-0ylATmReW', "last_request_at" = '2009-08-07 16:30:02', "updated_at" = '2009-08-07 16:30:02' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (1.2ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 44ms (View: 13, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:30:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'Nlta_YosWqLA3swiYviH', "last_request_at" = '2009-08-07 16:30:03', "updated_at" = '2009-08-07 16:30:03' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.9ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 104ms (View: 8, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:30:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'crAIX7MrbRpGHidsKFmm', "last_request_at" = '2009-08-07 16:30:04', "updated_at" = '2009-08-07 16:30:04' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+ERROR: compiling _run_haml_app47views47questions47new46html46haml RAISED compile error
+/Users/mac/workspace/vinh/app/views/questions/new.html.haml:20: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/new.html.haml:22: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_haml_app47views47questions47new46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :format=>:xhtml, :ugly=>false, :preserve=>["textarea", "pre"], :encoding=>nil});_erbout = _hamlout.buffer;__in_erb_template = true;;
+
+_hamlout.push_text("<h1>\n  New question\n</h1>\n", 0, false); form_for(@question) do |question|;
+
+
+_hamlout.push_text("#{haml_temp =  question.error_messages
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n<p>\n  #{_hamlout.adjust_tabs(1); haml_temp =  question.label :question
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  <br />\n  #{haml_temp =  question.text_area :question, :cols => "50", :rows => "5"
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n", -1, false); ('A'..'D').each do |letter|;
+ question.fields_for :choices do |choice|;
+
+
+
+_hamlout.push_text("<p>\n  #{_hamlout.adjust_tabs(1); haml_temp =  choice.hidden_field :letter, :value => letter
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  #{haml_temp =  letter
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  .\n  #{haml_temp =  choice.text_field :choice
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n</p>\n<p></p>\n", -1, false);end;_hamlout.push_text("#{haml_temp =  question.submit 'Create'
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);end;_hamlout.push_text("#{haml_temp =  link_to 'Back', questions_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/mac/workspace/vinh/app/views/questions/new.html.haml:22:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/mac/workspace/vinh/app/controllers/questions_controller.rb:32:in `new'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/Library/Ruby/Gems/1.8/gems/haml-2.2.0/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/debugger.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/mac/workspace/vinh/app/views/questions/new.html.haml:20: syntax error, unexpected kENSURE, expecting kEND
+/Users/mac/workspace/vinh/app/views/questions/new.html.haml:22: syntax error, unexpected $end, expecting kEND) on line #20 of app/views/questions/new.html.haml:
+17:   = question.submit 'Create'
+18: = link_to 'Back', questions_path
+
+    app/views/questions/new.html.haml:22:in `compile!'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.0) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/questions_controller.rb:32:in `new'
+    haml (2.2.0) rails/./lib/sass/plugin/rails.rb:19:in `process'
+
+Rendered rescues/_trace (58.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:30:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'EJlH6sq730yDiijWzXlf', "last_request_at" = '2009-08-07 16:30:23', "updated_at" = '2009-08-07 16:30:23' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 46ms (View: 9, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#create (for 127.0.0.1 at 2009-08-07 09:30:26) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"", "letter"=>"A"}, "1"=>{"choice"=>"", "letter"=>"B"}, "2"=>{"choice"=>"", "letter"=>"C"}, "3"=>{"choice"=>"", "letter"=>"D"}}, "question"=>""}}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'dNjbaulwEwlE6Wuelujr', "last_request_at" = '2009-08-07 16:30:26', "updated_at" = '2009-08-07 16:30:26' WHERE "id" = 1[0m
+  [4;36;1mQuestion Create (0.4ms)[0m   [0;1mINSERT INTO "questions" ("updated_at", "question", "position", "created_at") VALUES('2009-08-07 16:30:26', '', NULL, '2009-08-07 16:30:26')[0m
+  [4;35;1mChoice Create (0.1ms)[0m   [0mINSERT INTO "choices" ("updated_at", "question_id", "choice", "letter", "created_at") VALUES('2009-08-07 16:30:26', 7, '', 'A', '2009-08-07 16:30:26')[0m
+  [4;36;1mChoice Create (0.1ms)[0m   [0;1mINSERT INTO "choices" ("updated_at", "question_id", "choice", "letter", "created_at") VALUES('2009-08-07 16:30:26', 7, '', 'B', '2009-08-07 16:30:26')[0m
+  [4;35;1mChoice Create (0.1ms)[0m   [0mINSERT INTO "choices" ("updated_at", "question_id", "choice", "letter", "created_at") VALUES('2009-08-07 16:30:26', 7, '', 'C', '2009-08-07 16:30:26')[0m
+  [4;36;1mChoice Create (0.1ms)[0m   [0;1mINSERT INTO "choices" ("updated_at", "question_id", "choice", "letter", "created_at") VALUES('2009-08-07 16:30:26', 7, '', 'D', '2009-08-07 16:30:26')[0m
+Redirected to http://localhost:3000/questions/7
+Completed in 51ms (DB: 2) | 302 Found [http://localhost/questions]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-08-07 09:30:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"7", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'DFdAGWr-T-n2wudlXobh', "last_request_at" = '2009-08-07 16:30:26', "updated_at" = '2009-08-07 16:30:26' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.4ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mChoice Load (0.7ms)[0m   [0;1mSELECT * FROM "choices" WHERE ("choices".question_id = 7) [0m
+Completed in 40ms (View: 8, DB: 2) | 200 OK [http://localhost/questions/7]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:30:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'R77G-NxL8m5N6pHnKZOn', "last_request_at" = '2009-08-07 16:30:28', "updated_at" = '2009-08-07 16:30:28' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (1.3ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 41ms (View: 9, DB: 3) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#destroy (for 127.0.0.1 at 2009-08-07 09:30:34) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "id"=>"7", "controller"=>"questions"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 's6yVXRUxvMycsBMXjRm_', "last_request_at" = '2009-08-07 16:30:34', "updated_at" = '2009-08-07 16:30:34' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.4ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 7) [0m
+  [4;35;1mQuestion Destroy (0.3ms)[0m   [0mDELETE FROM "questions" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/questions
+Completed in 45ms (DB: 2) | 302 Found [http://localhost/questions/7]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:30:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = '6MLDuqN1RrHI33PfaV_i', "last_request_at" = '2009-08-07 16:30:34', "updated_at" = '2009-08-07 16:30:34' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (1.0ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 108ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:33:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'acFPzi9cQzbMmMDcb4gU', "last_request_at" = '2009-08-07 16:33:47', "updated_at" = '2009-08-07 16:33:47' WHERE "id" = 1[0m
+  [4;35;1mQuestion Load (0.8ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 40ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:33:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'aE6pzwb6Z_lGSnxhpUlf', "last_request_at" = '2009-08-07 16:33:48', "updated_at" = '2009-08-07 16:33:48' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 41ms (View: 5, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#create (for 127.0.0.1 at 2009-08-07 09:33:51) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"", "letter"=>"A"}, "1"=>{"choice"=>"", "letter"=>"B"}, "2"=>{"choice"=>"", "letter"=>"C"}, "3"=>{"choice"=>"", "letter"=>"D"}}, "question"=>""}}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'TdI2jzGQ3KynVTV9OAsG', "last_request_at" = '2009-08-07 16:33:51', "updated_at" = '2009-08-07 16:33:51' WHERE "id" = 1[0m
+  [4;36;1mChoice Exists (0.3ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'A') LIMIT 1[0m
+  [4;35;1mChoice Exists (0.2ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'B') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'C') LIMIT 1[0m
+  [4;35;1mChoice Exists (0.2ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'D') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 59ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-08-07 09:34:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"questions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "perishable_token" = 'Tt1ccE8A0D7ttCVyjhR6', "last_request_at" = '2009-08-07 16:34:25', "updated_at" = '2009-08-07 16:34:25' WHERE "id" = 1[0m
+  [4;36;1mQuestion Load (0.9ms)[0m   [0;1mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+Completed in 109ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:34:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'vfhWiyqjdtRRLeDiV9_t', "last_request_at" = '2009-08-07 16:34:27', "updated_at" = '2009-08-07 16:34:27' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 43ms (View: 5, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:35:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'ORy8r8-0-e8j-FexSbtC', "last_request_at" = '2009-08-07 16:35:30', "updated_at" = '2009-08-07 16:35:30' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 46ms (View: 9, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:35:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '854x5qHB--ZQtCgs4_7h', "last_request_at" = '2009-08-07 16:35:33', "updated_at" = '2009-08-07 16:35:33' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 52ms (View: 7, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:37:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = '4s_luk5A8ti2l3CMgP6L', "last_request_at" = '2009-08-07 16:37:34', "updated_at" = '2009-08-07 16:37:34' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 116ms (View: 10, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:37:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'ZlvJp1gL_foP74Kcg4yA', "last_request_at" = '2009-08-07 16:37:34', "updated_at" = '2009-08-07 16:37:34' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 43ms (View: 5, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#create (for 127.0.0.1 at 2009-08-07 09:37:51) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"new answer a", "letter"=>"A"}, "1"=>{"choice"=>"new answer b", "letter"=>"B"}, "2"=>{"choice"=>"new answer c", "letter"=>"C"}, "3"=>{"choice"=>"new answer d", "letter"=>"D"}}, "question"=>"new question"}}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'SaQZvx4apyfhLZa6E5g8', "last_request_at" = '2009-08-07 16:37:51', "updated_at" = '2009-08-07 16:37:51' WHERE "id" = 1[0m
+  [4;35;1mChoice Exists (0.3ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'A') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'B') LIMIT 1[0m
+  [4;35;1mChoice Exists (0.2ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'C') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'D') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 57ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#create (for 127.0.0.1 at 2009-08-07 09:38:58) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"new answer a", "letter"=>"A"}, "1"=>{"choice"=>"new answer b", "letter"=>"B"}, "2"=>{"choice"=>"new answer c", "letter"=>"C"}, "3"=>{"choice"=>"new answer d", "letter"=>"D"}}, "question"=>"new question"}}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'xbsFGLThjo55MG0vHA-s', "last_request_at" = '2009-08-07 16:38:58', "updated_at" = '2009-08-07 16:38:58' WHERE "id" = 1[0m
+  [4;35;1mChoice Exists (0.9ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'A') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'B') LIMIT 1[0m
+  [4;35;1mChoice Exists (0.2ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'C') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'D') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 63ms (View: 9, DB: 3) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-08-07 09:39:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"questions"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'jxuOWZHmAhfUYbkgzaQr', "last_request_at" = '2009-08-07 16:39:01', "updated_at" = '2009-08-07 16:39:01' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 112ms (View: 5, DB: 1) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#create (for 127.0.0.1 at 2009-08-07 09:39:04) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OETylChErH1frXnDVgDCiQfYgMsmeSwJmPmVg7dgK2A=", "controller"=>"questions", "question"=>{"choices_attributes"=>{"0"=>{"choice"=>"", "letter"=>"A"}, "1"=>{"choice"=>"", "letter"=>"B"}, "2"=>{"choice"=>"", "letter"=>"C"}, "3"=>{"choice"=>"", "letter"=>"D"}}, "question"=>"sdfa"}}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "perishable_token" = 'sYkVuNmGfNoKOUva0SR-', "last_request_at" = '2009-08-07 16:39:04', "updated_at" = '2009-08-07 16:39:04' WHERE "id" = 1[0m
+  [4;35;1mChoice Exists (0.3ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'A') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'B') LIMIT 1[0m
+  [4;35;1mChoice Exists (0.2ms)[0m   [0mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'C') LIMIT 1[0m
+  [4;36;1mChoice Exists (0.2ms)[0m   [0;1mSELECT "choices".id FROM "choices" WHERE ("choices"."letter" = 'D') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Completed in 59ms (View: 9, DB: 2) | 200 OK [http://localhost/questions]

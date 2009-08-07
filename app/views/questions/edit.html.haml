@@ -1,0 +1,17 @@
+%h1
+  Editing question
+- form_for(@question) do |f|
+  = f.error_messages
+  %p
+    = f.label :question
+    %br
+    = f.text_area :question
+  - f.fields_for :choices do |choice|
+    %p
+      = choice.text_field :letter, :disabled => true, :size => 2
+      = choice.text_field :choice
+  %p
+    = f.submit 'Update'
+= link_to 'Show', @question
+|
+= link_to 'Back', questions_path

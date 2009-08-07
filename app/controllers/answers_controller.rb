@@ -4,7 +4,8 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.xml
   def index
-    @answers = current_user.answers.all
+    @questions = Question.paginate :page => params[:page], :per_page => 5
+    @answer = current_user.answers.build
     
     respond_to do |format|
       format.html # index.html.erb
@@ -57,8 +58,8 @@ class AnswersController < ApplicationController
     if @answers.all?(&:valid?)
       @answers.each(&:save!)
       build_dna
-      flash[:notice] = 'Answer was successfully created.'
-      redirect_to :action => "index"
+      flash[:notice] = 'Answer was successfully saved.'
+      redirect_to account_path
     else
       flash[:notice] = 'An error occured.'
       redirect_to :action => "new"
@@ -109,7 +110,7 @@ class AnswersController < ApplicationController
     
     def build_dna
       @questions = Question.all
-      @answers = @questions.collect {|question| question.answer(current_user) && question.answer(current_user).answer ? question.answer(current_user).answer : 0 }.to_s
+      @answers = @questions.collect {|question| question.answer(current_user) and question.answer(current_user).answer ? question.answer(current_user).answer : 0 }.to_s
       current_user.update_attribute("dna",@answers)
     end
 end
